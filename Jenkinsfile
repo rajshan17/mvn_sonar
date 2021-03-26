@@ -15,7 +15,8 @@ pipeline {
                 }
             }
             steps {
-                 sh 'mvn -B -DskipTests clean package sonar:sonar'                
+                 sh 'mvn -B -DskipTests clean package sonar:sonar'               
+                 slackSend channel: jenkinsintegration, message: "Build Complete", color: 'success', tokenCredentialId: 'SlackId'
             }
         }
         }
