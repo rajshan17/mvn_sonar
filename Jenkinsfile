@@ -16,7 +16,7 @@ pipeline {
             }
             steps {
                  sh 'mvn -B -DskipTests clean package sonar:sonar'               
-                 slackSend channel: jenkinsintegration, message: "Build Complete", color: 'success', tokenCredentialId: 'SlackId'
+                 slackSend baseUrl: 'https://hooks.slack.com/services/', channel: '#jenkinsintegration', color: 'Good', message: 'Build Success', teamDomain: 'Jenkins_Testing', tokenCredentialId: 'SlackId', username: 'rajshan17'
             }
         }
         }
